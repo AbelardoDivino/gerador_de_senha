@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <header> <H1>Gerador de Senhas</H1></header>
+
+    <main class="container">
+
+
+        <article id="fazela">
+
+            <h2>Personalizar a senha</h2>
+
+            <input type="range" min="4" max="80" value="22" step="1" id="range"> 
+           
+        </article>
+
+             <div id="maiuscula">
+                <label for="">Maiusculas</label>
+                <input type="checkbox" id="maiusculas"> 
+             </div>
+            <div id="numero">
+                <label for="">Numeros</label>
+                <input type="checkbox" id="numeros">
+            </div>
+            <div id="sinbolo">
+                <label for="">sinbolos</label>
+                <input type="checkbox" id="sinbolos">
+            </div>
+
+            <button id="gerar">Gerar</button>
+
+    </main>
+
+    <div id="res">
+
+    </div>
+
+
+    <footer>
+        <!-- <i class="fa-brands fa-github"></i> -->
+         <!-- <i class="fa-brands fa-linkedin"></i> -->
+    </footer>
+
+
+    <script src="java.js"></script>
+</body>
+</html>
