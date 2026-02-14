@@ -1,36 +1,40 @@
-const minusculas = 'abcdefghijklmnopqrstuvwxyz'
+const chkMinusculas = document.getElementById("minusculas")
+const chkMaiusculas = document.getElementById("maiusculas")
+const chkNumeros = document.getElementById("numeros")
+const chkSimbolos = document.getElementById("sinbolos")
 const range = document.getElementById("range")
-const maiuscula = document.getElementById('maiusculas')
-maiuscula = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-const numeros = document.getElementById('numeros')
-numeros = [0,1,2,3,4,5,6,7,8,9]
-const sinbolos = document.getElementById('sinbolos')
-sinbolos = "!@#$%&&*?\/"
+
+
+const letrasMinusculas = "abcdefghijklmnopqrstuvwxyz"
+const letrasMaiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const numerosStr = "0123456789"
+const simbolosStr = "!@#$%&*?"
+
+
 let gerar = document.getElementById('gerar')
 let res = document.getElementById("res")
+gerar.addEventListener("click", () => {
 
-gerar.addEventListener("click",()=>{
-  res.innerText = range.value
+    const tamanho = range.value
 
+    let pool = ""
 
+    if (chkMinusculas.checked) pool += letrasMinusculas
+    if (chkMaiusculas.checked) pool += letrasMaiusculas
+    if (chkNumeros.checked) pool += numerosStr
+    if (chkSimbolos.checked) pool += simbolosStr
 
-let senha = ''
+    if (pool.length === 0) {
+        res.innerHTML = "Selecione ao menos uma opção"
+        return
+    }
 
-  for(let i = 0; i< range.value; i++){
+    let senha = ""
 
-    let letra 
+    for (let i = 0; i < tamanho; i++) {
+        let indice = Math.floor(Math.random() * pool.length)
+        senha += pool[indice]
+    }
 
-    let indice1 = Math.floor(Math.random() * minusculas.length)
-
-    letra = minusculas[indice1]
-
-    senha += letra
-
-     let indice2 = Math.floor(Math.random() * maiuscula.length)
-
-      let indice3 = Math.floor(Math.random() * sinbolos.length)
-
-  }
-
-
+    res.innerHTML = senha   // ← TEM que estar aqui dentro
 })
